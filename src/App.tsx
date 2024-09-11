@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Categories from './components/Categories';
 import Featured from './components/Featured';
 import About from './components/About';
 import Footer from './components/Footer';
@@ -11,6 +12,7 @@ function App() {
     <>
       <Header />
       <Hero />
+      <Categories />
       <Featured />
       <About />
       <Footer />
