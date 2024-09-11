@@ -2,6 +2,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Featured from './components/Featured';
 import About from './components/About';
+import Footer from './components/Footer';
 
 import './index.css'
 
@@ -12,6 +13,7 @@ function App() {
       <Hero />
       <Featured />
       <About />
+      <Footer />
     </>
   )
 }
