@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Featured from './components/Featured';
 import About from './components/About';
 
 import './index.css'
@@ -9,6 +10,7 @@ function App() {
     <>
       <Header />
       <Hero />
+      <Featured />
       <About />
     </>
   )
