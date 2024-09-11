@@ -9,7 +9,7 @@ const Button = (props: btnProps) => {
   }
   const colorVariants: colorVars = {
     orange: "bg-p-orange-dark hover:bg-p-orange-light text-n-white px-[30px] py-[15px]",
-    black: "bg-n-black hover:bg-n-grey-dark text-n-white hover:text-n-black px-[30px] py-[15px]",
+    black: "bg-n-black hover:bg-n-grey text-n-white px-[30px] py-[15px]",
     clear: "bg-transparent hover:bg-n-black text-n-black hover:text-n-white border-[1px] border-n-black  px-[29px] py-[14px]",
     noBorder: "bg-n-white text-n-black hover:text-p-orange-dark px-[30px] py-[15px]"
   }

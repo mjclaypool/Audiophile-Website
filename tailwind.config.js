@@ -60,6 +60,7 @@ export default {
         "p-orange-light": "#FBAF85",
         "n-grey-v-dark": "#101010",
         "n-grey-dark": "#F1F1F1",
+        "n-grey": "#4C4C4C",
         "n-grey-light": "#FAFAFA",
         "n-white": "#FFFFFF",
         "n-black": "#000000",
