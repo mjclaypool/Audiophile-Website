@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
@@ -15,14 +16,14 @@ export default function Header() {
             className="text-n-white hover:text-p-orange-dark h-[18px] md:pr-[42px] cursor-pointer"
           />
         </div>
-        <div className="flex md:flex-1 justify-start">
+        <Link to="/" className="flex md:flex-1 justify-start">
           <img src={logo} alt="Audiophile logo" className="h-[25px] object-contain cursor-pointer" />
-        </div>
+        </Link>
         <nav className="hidden xl:flex flex-1 justify-center gap-[34px] font-manrope text-n-white mx-8">
-          <button type="button" className="text-sub-title hover:text-p-orange-dark">HOME</button>
-          <button type="button" className="text-sub-title hover:text-p-orange-dark">HEADPHONES</button>
-          <button type="button" className="text-sub-title hover:text-p-orange-dark">SPEAKERS</button>
-          <button type="button" className="text-sub-title hover:text-p-orange-dark">EARPHONES</button>
+          <Link to="/" className="text-sub-title hover:text-p-orange-dark">HOME</Link>
+          <Link to="/headphones" className="text-sub-title hover:text-p-orange-dark">HEADPHONES</Link>
+          <Link to="/speakers" className="text-sub-title hover:text-p-orange-dark">SPEAKERS</Link>
+          <Link to="/earphones" className="text-sub-title hover:text-p-orange-dark">EARPHONES</Link>
         </nav>
         <div className="flex md:flex-1 justify-end">
           <img src={cart} alt="Cart icon" className="h-5 object-contain cursor-pointer"/>

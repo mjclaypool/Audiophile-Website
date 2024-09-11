@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -9,14 +10,14 @@ export default function Footer() {
   return (
     <footer className="flex flex-col gap-12 md:gap-8 xl:gap-9 items-center md:items-start text-center md:text-start font-manrope text-n-white bg-n-grey-v-dark pt-[52px] md:pt-[60px] xl:pt-[75px] pb-[38px] md:pb-[46px] px-7 md:px-[39px] xl:px-[165px]">
       <div className="flex flex-col xl:flex-row xl:justify-between items-center md:items-start w-full gap-12 md:gap-8">
-        <div>
+        <Link to="/">
           <img src={logo} alt="Audiophile logo" />
-        </div>
+        </Link>
         <div className="flex flex-col md:flex-row gap-4 md:gap-[34px]">
-          <button type="button" className="text-sub-title hover:text-p-orange-dark">HOME</button>
-          <button type="button" className="text-sub-title hover:text-p-orange-dark">HEADPHONES</button>
-          <button type="button" className="text-sub-title hover:text-p-orange-dark">SPEAKERS</button>
-          <button type="button" className="text-sub-title hover:text-p-orange-dark">EARPHONES</button>
+          <Link to="/" className="text-sub-title hover:text-p-orange-dark">HOME</Link>
+          <Link to="/headphones" className="text-sub-title hover:text-p-orange-dark">HEADPHONES</Link>
+          <Link to="/speakers" className="text-sub-title hover:text-p-orange-dark">SPEAKERS</Link>
+          <Link to="/earphones" className="text-sub-title hover:text-p-orange-dark">EARPHONES</Link>
         </div>
       </div>
       <div className="md:mb-12 xl:mb-5 xl:w-1/2 xl:pr-6">

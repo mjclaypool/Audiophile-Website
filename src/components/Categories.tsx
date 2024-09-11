@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../UI/Button";
 
 import headphones from "../assets/shared/desktop/image-category-thumbnail-headphones.png";
@@ -8,24 +9,28 @@ export default function Categories() {
   type category = {
     title: string,
     thumbnail: string,
-    altTxt: string
+    altTxt: string,
+    link: string
   };
 
   const cats: category[] = [
     {
       title: "HEADPHONES",
       thumbnail: headphones,
-      altTxt: "Headphones thumbnail image"
+      altTxt: "Headphones thumbnail image",
+      link: "/headphones"
     },
     {
       title: "SPEAKERS",
       thumbnail: speakers,
-      altTxt: "Speakers thumbnail image"
+      altTxt: "Speakers thumbnail image",
+      link: "/speakers"
     },
     {
       title: "EARPHONES",
       thumbnail: earphones,
-      altTxt: "Earphones thumbnail image"
+      altTxt: "Earphones thumbnail image",
+      link: "/earphones"
     }
   ];
 
@@ -36,9 +41,9 @@ export default function Categories() {
           <div key={cat.title} className="relative flex flex-col items-center justify-end h-[165px] xl:h-[204px] w-full bg-n-grey-dark rounded-lg">
             <img src={cat.thumbnail} alt={cat.altTxt} className="absolute h-[130px] xl:h-[186px] -top-[46px] xl:-top-[66px]" />
             <h2 className="font-bold text-body">{cat.title}</h2>
-            <div className="mb-1 xl:mb-3">
+            <Link to={cat.link} className="mb-1 xl:mb-3">
               <Button color="noBorder" btnTxt="SHOP" />
-            </div>
+            </Link>
           </div>
         ))}
       </div>
