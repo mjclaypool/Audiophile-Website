@@ -1,9 +1,9 @@
 import Button from "../UI/Button";
 
-import zx9Speaker from "../assets/home/mobile/image-speaker-zx9.png";
-import zx9SpeakerMD from "../assets/home/tablet/image-speaker-zx9.png";
-import zx9SpeakerXL from "../assets/home/desktop/image-speaker-zx9.png";
-import circles from "../assets/home/desktop/pattern-circles.svg";
+import zx9Speaker from "/assets/home/mobile/image-speaker-zx9.png";
+import zx9SpeakerMD from "/assets/home/tablet/image-speaker-zx9.png";
+import zx9SpeakerXL from "/assets/home/desktop/image-speaker-zx9.png";
+import circles from "/assets/home/desktop/pattern-circles.svg";
 
 export default function FeaturedZX9() {
   return (

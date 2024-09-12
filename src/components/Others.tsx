@@ -21,9 +21,9 @@ const Others = (props: otherProps) => {
       <div className="flex flex-col md:flex-row md:justify-between w-full max-w-[360px] md:max-w-[689px] xl:max-w-[1110px] gap-[56px] md:gap-[11px] xl:gap-[30px]">
         {props.others.map((product) => (
           <div key={product.slug} className="flex flex-col w-full">
-            <div className="h-[120px] md:h-[318px] bg-n-grey-dark rounded-lg mb-8 md:mb-10">
-              <img src={product.image.mobile} alt={product.name} />
-            </div>
+            <img src={product.image.mobile} alt={product.name} className="flex md:hidden h-[120px] object-cover bg-n-grey-dark rounded-lg mb-8" />
+            <img src={product.image.tablet} alt={product.name} className="hidden md:flex xl:hidden h-[318px] object-cover bg-n-grey-dark rounded-lg mb-10" />
+            <img src={product.image.desktop} alt={product.name} className="hidden xl:flex h-[318px] object-cover bg-n-grey-dark rounded-lg mb-10" />
             <p className="text-h5 mb-8">{product.name}</p>
             <Link to={`/${product.category}/${product.slug}`}>
               <Button color="orange" btnTxt="SEE PRODUCT"/>

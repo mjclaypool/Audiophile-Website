@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-import logo from '../assets/shared/desktop/logo.svg';
-import cart from '../assets/shared/desktop/icon-cart.svg'
+import logo from '/assets/shared/desktop/logo.svg';
+import cart from '/assets/shared/desktop/icon-cart.svg'
 
 export default function Header() {
   return (

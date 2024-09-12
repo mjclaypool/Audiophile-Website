@@ -23,8 +23,14 @@ const Summary = (props: summaryProps) => {
           <p className="text-body opacity-50 mt-4 mb-6 xl:mt-[79px] xl:mb-[56px]">Go Back</p>
         </Link>
         <div className="flex flex-col md:flex-row md:justify-between md:items-center">
-          <div className="text-center h-[327px] md:h-[480px] xl:h-[560px] w-full md:w-[281px] xl:w-[540px] bg-n-grey-dark rounded-lg mb-8 md:mb-0">
-            <img src={props.image.mobile} alt={props.name} />
+          <div className="flex md:hidden justify-center text-center h-[327px] w-full bg-n-grey-dark rounded-lg mb-8">
+            <img src={props.image.mobile} alt={props.name} className="object-contain p-1" />
+          </div>
+          <div className="hidden md:flex xl:hidden justify-center text-center h-[480px] w-[281px] bg-n-grey-dark rounded-lg">
+            <img src={props.image.tablet} alt={props.name} className="object-contain p-1" />
+          </div>
+          <div className="hidden xl:flex justify-center text-center h-[560px] w-[540px] bg-n-grey-dark rounded-lg">
+            <img src={props.image.desktop} alt={props.name} className="object-contain p-1" />
           </div>
           <div className="md:w-[340px] xl:w-[446px]">
             {props.new == true &&

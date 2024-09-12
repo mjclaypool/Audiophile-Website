@@ -1,8 +1,8 @@
 import Button from "../UI/Button";
 
-import zx7Speaker from "../assets/home/mobile/image-speaker-zx7.jpg";
-import zx7SpeakerMD from "../assets/home/tablet/image-speaker-zx7.jpg";
-import zx7SpeakerXL from "../assets/home/desktop/image-speaker-zx7.jpg";
+import zx7Speaker from "/assets/home/mobile/image-speaker-zx7.jpg";
+import zx7SpeakerMD from "/assets/home/tablet/image-speaker-zx7.jpg";
+import zx7SpeakerXL from "/assets/home/desktop/image-speaker-zx7.jpg";
 
 export default function FeaturedZX7() {
   return (

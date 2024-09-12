@@ -4,7 +4,7 @@ import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 
-import logo from '../assets/shared/desktop/logo.svg';
+import logo from '/assets/shared/desktop/logo.svg';
 
 export default function Footer() {
   return (

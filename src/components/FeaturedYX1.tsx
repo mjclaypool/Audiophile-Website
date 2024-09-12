@@ -1,8 +1,8 @@
 import Button from "../UI/Button";
 
-import yx1Earphones from "../assets/home/mobile/image-earphones-yx1.jpg";
-import yx1EarphonesMD from "../assets/home/tablet/image-earphones-yx1.jpg";
-import yx1EarphonesXL from "../assets/home/desktop/image-earphones-yx1.jpg";
+import yx1Earphones from "/assets/home/mobile/image-earphones-yx1.jpg";
+import yx1EarphonesMD from "/assets/home/tablet/image-earphones-yx1.jpg";
+import yx1EarphonesXL from "/assets/home/desktop/image-earphones-yx1.jpg";
 
 export default function FeaturedYX1() {
   return (

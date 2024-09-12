@@ -1,6 +1,6 @@
 import Button from "../UI/Button";
 
-import heroImg from "../assets/home/desktop/image-hero.jpg";
+import heroImg from "/assets/home/desktop/image-hero.jpg";
 
 export default function Hero() {
   return (

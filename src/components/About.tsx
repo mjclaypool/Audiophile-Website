@@ -1,5 +1,5 @@
-import aboutImgLg from "../assets/shared/desktop/image-best-gear.jpg";
-import aboutImgSm from "../assets/shared/tablet/image-best-gear.jpg";
+import aboutImgLg from "/assets/shared/desktop/image-best-gear.jpg";
+import aboutImgSm from "/assets/shared/tablet/image-best-gear.jpg";
 
 export default function About() {
   return (
