@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../UI/Button";
 
 import yx1Earphones from "/assets/home/mobile/image-earphones-yx1.jpg";
@@ -19,7 +20,9 @@ export default function FeaturedYX1() {
       <div className="flex max-w-[360px] w-full md:max-w-none md:w-1/2 bg-n-grey-dark rounded-lg px-6 md:px-[41px] xl:px-0 py-[41px] md:py-[101px]">
         <div className="flex flex-col md:justify-center xl:ml-[95px]">
           <h2 className="font-manrope text-h4 mb-8">YX1 Earphones</h2>
-          <Button color="clear" btnTxt="SEE PRODUCT" />
+          <Link to="/earphones/yx1-earphones">
+            <Button color="clear" btnTxt="SEE PRODUCT" />
+          </Link>
         </div>
       </div>
     </div>

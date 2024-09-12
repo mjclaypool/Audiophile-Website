@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../UI/Button";
 
 import zx7Speaker from "/assets/home/mobile/image-speaker-zx7.jpg";
@@ -18,7 +19,9 @@ export default function FeaturedZX7() {
       </div>
       <div className="absolute z-10 top-[50%] -translate-y-[50%] left-6 xl:left-[95px]">
         <h2 className="font-manrope text-h4 mb-8">ZX7 Speaker</h2>
-        <Button color="clear" btnTxt="SEE PRODUCT" />
+        <Link to="/speakers/zx7-speaker">
+          <Button color="clear" btnTxt="SEE PRODUCT" />
+        </Link>
       </div>
     </div>
   )

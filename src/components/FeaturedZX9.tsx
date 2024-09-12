@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../UI/Button";
 
 import zx9Speaker from "/assets/home/mobile/image-speaker-zx9.png";
@@ -25,7 +26,9 @@ export default function FeaturedZX9() {
           <h2 className="text-h3 md:text-h1 text-n-white mx-10 mb-6 md:w-[340px] xl:mx-0">ZX9 SPEAKER</h2>
           <p className="text-body text-n-white opacity-75 mb-8 md:w-[340px]">Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
           <div className="mb-[55px] xl:mb-0">
+          <Link to="/speakers/zx9-speaker">
             <Button color="black" btnTxt="SEE PRODUCT" />
+          </Link>
           </div>
         </div>
       </div>
