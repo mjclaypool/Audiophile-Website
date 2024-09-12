@@ -10,7 +10,7 @@ const Products = (props: prodProps) => {
   const catProducts = data.filter((product) => product.category == props.cat).reverse();
 
   return (
-    <div className="flex flex-col items-center gap-[120px] xl:gap-[160px] px-6 md:px-[39px] mb-[172px] xl:mb-[212px]">
+    <div className="flex flex-col items-center gap-[120px] xl:gap-[160px] px-6 md:px-[39px] mb-[120px] xl:mb-[160px]">
       {catProducts.map((prod) => (
         <div key={prod.slug} className="flex flex-col md:max-w-[689px] xl:max-w-none xl:flex-row xl:justify-center xl:items-center gap-8 xl:gap-[125px] md:gap-[52px]">
           <div className="h-[352px] xl:h-[560px] bg-n-grey-dark xl:w-[540px] rounded-lg">

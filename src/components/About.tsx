@@ -3,7 +3,7 @@ import aboutImgSm from "../assets/shared/tablet/image-best-gear.jpg";
 
 export default function About() {
   return (
-    <div className="flex justify-center mb-[120px] px-6 md:px-[39px]">
+    <div className="flex justify-center mb-[120px] xl:mb-[160px] px-6 md:px-[39px]">
       <div className="flex flex-col-reverse xl:flex-row items-center xl:w-[1110px]">
         <div className="flex xl:flex-1 font-manrope">
           <div className="text-center md:px-[58px] xl:text-start xl:pl-0 xl:pr-28">

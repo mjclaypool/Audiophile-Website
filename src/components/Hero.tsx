@@ -4,7 +4,7 @@ import heroImg from "../assets/home/desktop/image-hero.jpg";
 
 export default function Hero() {
   return (
-    <div className="flex flex-col items-center bg-n-grey-v-dark mb-[92px] md:mb-[148px]">
+    <div className="flex flex-col items-center bg-n-grey-v-dark mb-[40px] md:mb-[96px] xl:mb-[120px]">
       <div className="self-center h-[1px] w-full max-w-[1110px] bg-n-white"/>
       <div className="flex items-center w-[1110px] overflow-clip">
         <div className="flex flex-col flex-1 font-manrope text-n-white">

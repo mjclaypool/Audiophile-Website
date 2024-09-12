@@ -5,6 +5,7 @@ import Homepage from './pages/Homepage';
 import Headphones from './pages/Headphones';
 import Speakers from './pages/Speakers';
 import Earphones from './pages/Earphones';
+import ProductDetail from './pages/ProductDetail';
 
 import './index.css'
 
@@ -16,7 +17,8 @@ const router = createHashRouter([
       { path: '/', element: <Homepage /> },
       { path: '/headphones', element: <Headphones /> },
       { path: '/speakers', element: <Speakers /> },
-      { path: '/earphones', element: <Earphones /> }
+      { path: '/earphones', element: <Earphones /> },
+      { path: '/:category/:product', element: <ProductDetail /> }
     ]
   }
 ])
