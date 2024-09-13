@@ -20,6 +20,11 @@ export default {
           letterSpacing: '1.5px',
           fontWeight: 'bold'
         }],
+        'h2-5': ['36px', {
+          lineHeight: '40px',
+          letterSpacing: '1.3px',
+          fontWeight: 'bold'
+        }],
         'h3': ['32px', {
           lineHeight: '36px',
           letterSpacing: '1.15px',

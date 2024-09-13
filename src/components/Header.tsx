@@ -7,8 +7,9 @@ import cart from '/assets/shared/desktop/icon-cart.svg'
 
 export default function Header() {
   return (
-    <header className="flex justify-center bg-n-grey-v-dark p-8 md:px-[39px]">
-      <div className="flex justify-between items-center w-[1110px] h-7">
+    <header className="flex justify-center bg-transparent h-[92px] md:h-[89px] xl:h-[97px] p-8 md:px-[39px]">
+      <div className="absolute z-0 top-0 w-full h-[92px] md:h-[89px] xl:h-[97px] bg-n-grey-v-dark"/>
+      <div className="relative z-20 flex justify-between items-center w-[1110px] h-7">
         <div className="xl:hidden">
           <FontAwesomeIcon
             icon={faBars}
