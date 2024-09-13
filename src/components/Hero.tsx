@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <div className="flex justify-center bg-n-grey-v-dark h-[508px] md:h-[640px] xl:h-[632px] mb-[40px] md:mb-[96px] xl:mb-[120px]">
       <div className="absolute z-20 h-[1px] w-[100vw] max-w-[1110px] bg-n-white opacity-10"/>
-      <div className="absolute z-10 top-[0px] h-[600px] md:h-[729px] w-[100vw] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent from-[30%] to-n-black to-[70%]"/>
+      <div className="absolute z-10 top-[0px] h-[600px] md:h-[729px] w-[100vw] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent from-[30%] to-n-grey-v-dark to-[60%]"/>
       <div className="relative flex text-center xl:text-start w-full max-w-[375px] md:max-w-[689px] xl:max-w-[1110px]">
         <div className="relative z-30 flex flex-col font-manrope xl:w-[1110px] text-n-white px-6 ">
           <p className="text-overline opacity-50 mt-[108px] md:mt-[126px] mb-4 md:mb-6">NEW PRODUCT</p>

@@ -6,6 +6,7 @@ import Headphones from './pages/Headphones';
 import Speakers from './pages/Speakers';
 import Earphones from './pages/Earphones';
 import ProductDetail from './pages/ProductDetail';
+import { UserProgressContextProvider } from './store/UserProgressContext';
 
 import './index.css'
 
@@ -25,9 +26,9 @@ const router = createHashRouter([
 
 function App() {
   return (
-    <>
+    <UserProgressContextProvider>
       <RouterProvider router={router} />
-    </>
+    </UserProgressContextProvider>
   )
 }
 

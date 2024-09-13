@@ -1,4 +1,8 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import UserProgressContext from "../store/UserProgressContext.tsx";
+import NavModal from "./NavModal.tsx";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
@@ -6,8 +10,25 @@ import logo from '/assets/shared/desktop/logo.svg';
 import cart from '/assets/shared/desktop/icon-cart.svg'
 
 export default function Header() {
+  const userProgressCtx = useContext(UserProgressContext);
+
+  function handleShowModal() {
+    if (userProgressCtx.progress !== "menu") {
+      userProgressCtx.showMenu();
+    } else {
+      userProgressCtx.hideMenu();
+    }
+  }
+
+  function handleLogoClick() {
+    if (userProgressCtx.progress == "menu") {
+      userProgressCtx.hideMenu();
+    }
+    window.scrollTo(0, 0);
+  }
+
   return (
-    <header className="flex justify-center bg-transparent h-[92px] md:h-[89px] xl:h-[97px] p-8 md:px-[39px]">
+    <header className="sticky top-0 z-40 flex w-[100vw] justify-center bg-transparent h-[92px] md:h-[89px] xl:h-[97px] p-8 md:px-[39px]">
       <div className="absolute z-0 top-0 w-full h-[92px] md:h-[89px] xl:h-[97px] bg-n-grey-v-dark"/>
       <div className="relative z-20 flex justify-between items-center w-[1110px] h-7">
         <div className="xl:hidden">
@@ -15,9 +36,10 @@ export default function Header() {
             icon={faBars}
             aria-label="Font Awesome Hamburger Menu Icon"
             className="text-n-white hover:text-p-orange-dark h-[18px] md:pr-[42px] cursor-pointer"
+            onClick={handleShowModal}
           />
         </div>
-        <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex md:flex-1 justify-start">
+        <Link to="/" onClick={handleLogoClick} className="flex md:flex-1 justify-start">
           <img src={logo} alt="Audiophile logo" className="h-[25px] object-contain cursor-pointer" />
         </Link>
         <nav className="hidden xl:flex flex-1 justify-center gap-[34px] font-manrope text-n-white mx-8">
@@ -30,6 +52,7 @@ export default function Header() {
           <img src={cart} alt="Cart icon" className="h-5 object-contain cursor-pointer"/>
         </div>
       </div>
+      {userProgressCtx.progress == "menu" && <NavModal/>}
     </header>
   )
 }
