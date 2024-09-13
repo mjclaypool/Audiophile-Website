@@ -41,7 +41,7 @@ export default function Categories() {
           <div key={cat.title} className="relative flex flex-col items-center justify-end h-[165px] xl:h-[204px] w-full bg-n-grey-dark rounded-lg">
             <img src={cat.thumbnail} alt={cat.altTxt} className="absolute h-[130px] xl:h-[186px] -top-[46px] xl:-top-[66px]" />
             <h2 className="font-bold text-body">{cat.title}</h2>
-            <Link to={cat.link} className="mb-1 xl:mb-3">
+            <Link to={cat.link} onClick={() => window.scrollTo(0, 0)} className="mb-1 xl:mb-3">
               <Button color="noBorder" btnTxt="SHOP" />
             </Link>
           </div>

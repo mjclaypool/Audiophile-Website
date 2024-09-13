@@ -16,14 +16,14 @@ export default function Header() {
             className="text-n-white hover:text-p-orange-dark h-[18px] md:pr-[42px] cursor-pointer"
           />
         </div>
-        <Link to="/" className="flex md:flex-1 justify-start">
+        <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex md:flex-1 justify-start">
           <img src={logo} alt="Audiophile logo" className="h-[25px] object-contain cursor-pointer" />
         </Link>
         <nav className="hidden xl:flex flex-1 justify-center gap-[34px] font-manrope text-n-white mx-8">
-          <Link to="/" className="text-sub-title hover:text-p-orange-dark">HOME</Link>
-          <Link to="/headphones" className="text-sub-title hover:text-p-orange-dark">HEADPHONES</Link>
-          <Link to="/speakers" className="text-sub-title hover:text-p-orange-dark">SPEAKERS</Link>
-          <Link to="/earphones" className="text-sub-title hover:text-p-orange-dark">EARPHONES</Link>
+          <Link to="/" onClick={() => window.scrollTo(0, 0)} className="text-sub-title hover:text-p-orange-dark">HOME</Link>
+          <Link to="/headphones" onClick={() => window.scrollTo(0, 0)} className="text-sub-title hover:text-p-orange-dark">HEADPHONES</Link>
+          <Link to="/speakers" onClick={() => window.scrollTo(0, 0)} className="text-sub-title hover:text-p-orange-dark">SPEAKERS</Link>
+          <Link to="/earphones" onClick={() => window.scrollTo(0, 0)} className="text-sub-title hover:text-p-orange-dark">EARPHONES</Link>
         </nav>
         <div className="flex md:flex-1 justify-end">
           <img src={cart} alt="Cart icon" className="h-5 object-contain cursor-pointer"/>

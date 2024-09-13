@@ -25,7 +25,7 @@ const Others = (props: otherProps) => {
             <img src={product.image.tablet} alt={product.name} className="hidden md:flex xl:hidden h-[318px] object-cover bg-n-grey-dark rounded-lg mb-10" />
             <img src={product.image.desktop} alt={product.name} className="hidden xl:flex h-[318px] object-cover bg-n-grey-dark rounded-lg mb-10" />
             <p className="text-h5 mb-8">{product.name}</p>
-            <Link to={`/${product.category}/${product.slug}`}>
+            <Link to={`/${product.category}/${product.slug}`} onClick={() => window.scrollTo(0, 0)}>
               <Button color="orange" btnTxt="SEE PRODUCT"/>
             </Link>
           </div>

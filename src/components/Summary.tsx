@@ -19,7 +19,7 @@ const Summary = (props: summaryProps) => {
   return (
     <div className="flex justify-center px-6 mb-[88px] md:mb-[120px] xl:mb-[160px]">
       <div className="w-full max-w-[360px] md:max-w-[689px] xl:max-w-[1110px] font-manrope">
-        <Link to={`/${params.category}`}>
+        <Link to={`/${params.category}`} onClick={() => window.scrollTo(0, 0)}>
           <p className="text-body opacity-50 mt-4 mb-6 xl:mt-[79px] xl:mb-[56px]">Go Back</p>
         </Link>
         <div className="flex flex-col md:flex-row md:justify-between md:items-center">

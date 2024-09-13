@@ -29,7 +29,7 @@ const Products = (props: prodProps) => {
               }
               <h3 className="text-h4 md:text-h2 px-8 md:px-48 xl:px-0 xl:pr-48 mb-6 md:mb-8">{prod.name.toUpperCase()}</h3>
               <p className="text-body opacity-50 mb-6 xl:mb-10">{prod.description}</p>
-              <Link to={`/${props.cat}/${prod.slug}`}>
+              <Link to={`/${props.cat}/${prod.slug}`} onClick={() => window.scrollTo(0, 0)}>
                 <Button color="orange" btnTxt="SEE PRODUCT"/>
               </Link>
             </div>
