@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import UserProgressContext from "../store/UserProgressContext.tsx";
 import NavModal from "./NavModal.tsx";
+import CartModal from "./CartModal.tsx";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -12,19 +13,27 @@ import cart from '/assets/shared/desktop/icon-cart.svg'
 export default function Header() {
   const userProgressCtx = useContext(UserProgressContext);
 
-  function handleShowModal() {
+  function handleShowNavModal() {
     if (userProgressCtx.progress !== "menu") {
       userProgressCtx.showMenu();
     } else {
-      userProgressCtx.hideMenu();
+      userProgressCtx.hideModal();
     }
   }
 
   function handleLogoClick() {
-    if (userProgressCtx.progress == "menu") {
-      userProgressCtx.hideMenu();
+    if (userProgressCtx.progress !== "") {
+      userProgressCtx.hideModal();
     }
     window.scrollTo(0, 0);
+  }
+
+  function handleShowCart() {
+    if (userProgressCtx.progress !== "cart") {
+      userProgressCtx.showCart();
+    } else {
+      userProgressCtx.hideModal();
+    }
   }
 
   return (
@@ -36,7 +45,7 @@ export default function Header() {
             icon={faBars}
             aria-label="Font Awesome Hamburger Menu Icon"
             className="text-n-white hover:text-p-orange-dark h-[18px] md:pr-[42px] cursor-pointer"
-            onClick={handleShowModal}
+            onClick={handleShowNavModal}
           />
         </div>
         <Link to="/" onClick={handleLogoClick} className="flex md:flex-1 justify-start">
@@ -49,10 +58,16 @@ export default function Header() {
           <Link to="/earphones" onClick={() => window.scrollTo(0, 0)} className="text-sub-title hover:text-p-orange-dark">EARPHONES</Link>
         </nav>
         <div className="flex md:flex-1 justify-end">
-          <img src={cart} alt="Cart icon" className="h-5 object-contain cursor-pointer"/>
+          <img
+            src={cart}
+            alt="Cart icon"
+            className="h-5 object-contain cursor-pointer"
+            onClick={handleShowCart}
+          />
         </div>
       </div>
       {userProgressCtx.progress == "menu" && <NavModal/>}
+      {userProgressCtx.progress == "cart" && <CartModal/>}
     </header>
   )
 }

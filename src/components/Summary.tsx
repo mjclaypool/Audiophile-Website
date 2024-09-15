@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import Quantity from "../UI/Quantity";
 import Button from "../UI/Button";
 
 type summaryProps = {
@@ -39,7 +40,10 @@ const Summary = (props: summaryProps) => {
             <h2 className="text-h4 xl:text-h2 mb-6 md:mb-8">{props.name.toUpperCase()}</h2>
             <p className="text-body opacity-50 mb-6 md:mb-8">{props.description}</p>
             <h3 className="text-h6 mb-[31px] xl:mb-[47px]">$ {props.price}</h3>
-            <Button color="orange" btnTxt="ADD TO CART" />
+            <div className="flex gap-4">
+              <Quantity size="lg" />
+              <Button color="orange" btnTxt="ADD TO CART" />
+            </div>
           </div>
         </div>
       </div>

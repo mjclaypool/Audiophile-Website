@@ -40,7 +40,7 @@ export default function Categories() {
 
   function handleCatSelection() {
     if (userProgressCtx.progress == 'menu') {
-      userProgressCtx.hideMenu();
+      userProgressCtx.hideModal();
     }
     window.scrollTo(0, 0);
   }
