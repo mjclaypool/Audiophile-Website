@@ -1,8 +1,20 @@
+import { useState, useContext } from 'react';
 import { Link, useParams } from "react-router-dom";
 import Quantity from "../UI/Quantity";
 import Button from "../UI/Button";
+import CartContext from '../store/CartContext';
+
+type cartItem = {
+  id: number,
+  slug: string,
+  name: string,
+  qty: number,
+  price: number
+}
 
 type summaryProps = {
+  id: number,
+  slug: string,
   name: string,
   image: {
     mobile: string,
@@ -16,6 +28,35 @@ type summaryProps = {
 
 const Summary = (props: summaryProps) => {
   const params = useParams();
+  const [ qty, setQty ] = useState(1);
+  const cartCtx = useContext(CartContext);
+
+  let formattedPrice = new Intl.NumberFormat('en-US').format(props.price);
+
+  function handleUpdateQty(quantity: number) {
+    setQty(quantity);
+  }
+
+  function handleAddToCart() {
+    let abbrName: string = "";
+    if (props.name.charAt(0) == "Y" || props.name.charAt(0) == "Z") {
+      abbrName = props.name.slice(0, 3);
+    } else if (props.name.charAt(2) == "5") {
+      abbrName = props.name.slice(0, 4);
+    } else {
+      abbrName = props.name.replace("Mark", "MK");
+      abbrName = abbrName.replace(" Headphones", "");
+    }
+
+    let item: cartItem = {
+      id: props.id,
+      slug: props.slug,
+      name: abbrName,
+      qty: qty,
+      price: props.price
+    }
+    cartCtx.addItem(item)
+  }
 
   return (
     <div className="flex justify-center px-6 mb-[88px] md:mb-[120px] xl:mb-[160px]">
@@ -39,10 +80,12 @@ const Summary = (props: summaryProps) => {
             }
             <h2 className="text-h4 xl:text-h2 mb-6 md:mb-8">{props.name.toUpperCase()}</h2>
             <p className="text-body opacity-50 mb-6 md:mb-8">{props.description}</p>
-            <h3 className="text-h6 mb-[31px] xl:mb-[47px]">$ {props.price}</h3>
+            <h3 className="text-h6 mb-[31px] xl:mb-[47px]">$ {formattedPrice}</h3>
             <div className="flex gap-4">
-              <Quantity size="lg" />
-              <Button color="orange" btnTxt="ADD TO CART" />
+              <Quantity initial={1} updateQty={handleUpdateQty} />
+              <div onClick={handleAddToCart}>
+                <Button color="orange" btnTxt="ADD TO CART" />
+              </div>
             </div>
           </div>
         </div>

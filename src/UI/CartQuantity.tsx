@@ -5,27 +5,28 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 
 type qtyProps = {
+  id: number,
   initial: number,
-  updateQty: (qty: number) => void
+  updateQty: (id: number, qty: number) => void
 }
 
-const Quantity = (props: qtyProps) => {
+const CartQuantity = (props: qtyProps) => {
   const [qty, setQty] = useState(props.initial);
 
   function handleIncrease() {
     setQty(qty + 1);
-    props.updateQty(qty + 1);
+    props.updateQty(props.id, qty + 1);
   }
 
   function handleDecrease() {
     if (qty !== 0) {
       setQty(qty - 1);
-      props.updateQty(qty - 1);
+      props.updateQty(props.id, qty - 1);
     }
   }
 
   return (
-    <div className="w-[120px] flex items-center justify-between bg-n-grey-dark">
+    <div className="w-[96px] h-8 flex items-center justify-between bg-n-grey-dark">
       <FontAwesomeIcon
         icon={faMinus}
         aria-label="Decrease quantity, Font Awesome Minus Icon"
@@ -43,4 +44,4 @@ const Quantity = (props: qtyProps) => {
   )
 }
 
-export default Quantity;
+export default CartQuantity;

@@ -16,6 +16,8 @@ const ProductDetail = () => {
   return (
     <>
       <Summary
+        id={prodDetails[0].id}
+        slug={prodDetails[0].slug}
         name={prodDetails[0].name}
         image={prodDetails[0].image}
         new={prodDetails[0].new}

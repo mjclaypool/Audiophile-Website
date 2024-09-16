@@ -7,6 +7,7 @@ import Speakers from './pages/Speakers';
 import Earphones from './pages/Earphones';
 import ProductDetail from './pages/ProductDetail';
 import { UserProgressContextProvider } from './store/UserProgressContext';
+import { CartContextProvider } from './store/CartContext';
 
 import './index.css'
 
@@ -26,9 +27,11 @@ const router = createHashRouter([
 
 function App() {
   return (
-    <UserProgressContextProvider>
-      <RouterProvider router={router} />
-    </UserProgressContextProvider>
+    <CartContextProvider>
+      <UserProgressContextProvider>
+        <RouterProvider router={router} />
+      </UserProgressContextProvider>
+    </CartContextProvider>
   )
 }
 
