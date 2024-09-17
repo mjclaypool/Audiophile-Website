@@ -9,7 +9,7 @@ const CheckoutForm = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="flex flex-col bg-n-white w-full xl:w-[730px] h-min px-[23px] py-8 md:py-[30px] mx-6 md:mx-[39px] mb-8 xl:m-0 font-manrope rounded-lg">
+      <div className="flex flex-col bg-n-white w-full xl:w-[730px] h-min px-[23px] xl:px-[48px] py-8 md:py-[30px] xl:py-[54px] mb-8 mx-6 md:mx-[39px] xl:m-0 font-manrope rounded-lg">
         <h2 className="text-h4 tracking-[1px] mb-8 md:mb-[41px]">CHECKOUT</h2>
         <form className="flex flex-col" noValidate>
           <BillingDetails labelStyle={labelStyle} inputStyle={inputStyle} />
