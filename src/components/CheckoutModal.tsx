@@ -37,7 +37,7 @@ export default function CheckoutModal() {
             <div className="flex flex-col md:flex-row md:justify-between bg-n-grey-dark rounded-lg mb-[23px] md:mb-[46px]">
               <div className="flex flex-col flex-1">
                 <div className="flex items-center px-6 pt-6">
-                  <img src={`/assets/cart/image-${cartCtx.cartItems[0].slug}.jpg`} alt={cartCtx.cartItems[0].name} className="h-[50px] rounded-lg mr-4" />
+                  <img src={`./assets/cart/image-${cartCtx.cartItems[0].slug}.jpg`} alt={cartCtx.cartItems[0].name} className="h-[50px] rounded-lg mr-4" />
                   <div className="w-full">
                     <div className="flex justify-between">
                       <h3 className="text-body font-bold">{cartCtx.cartItems[0].name}</h3>
