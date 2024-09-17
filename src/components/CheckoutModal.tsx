@@ -14,12 +14,11 @@ export default function CheckoutModal() {
   const priceFormatter = new Intl.NumberFormat('en-US');
   const grandTot: number = cartCtx.cartTotalPrice + 50;
   const formattedGrandTot: string = priceFormatter.format(grandTot);
-
   const items: number = cartCtx.cartItems.length;
-  console.log(items);
 
-  function handleGoToCheckout() {
+  function handleGoBackHome() {
     userProgressCtx.hideModal();
+    cartCtx.clearCart();
     window.scrollTo(0, 0);
   }
 
@@ -59,7 +58,7 @@ export default function CheckoutModal() {
                 <p className="text-n-white text-h6">$ {formattedGrandTot}</p>
               </div>
             </div>
-            <Link to="/" onClick={handleGoToCheckout}>
+            <Link to="/" onClick={handleGoBackHome}>
               <Button color="orange" btnTxt='BACK TO HOME'/>
             </Link>
           </div>

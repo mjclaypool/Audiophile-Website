@@ -69,7 +69,7 @@ const CheckoutSummary = () => {
           <h4 className="text-body opacity-50">GRAND TOTAL</h4>
           <p className="text-h6 text-p-orange-dark tracking-[0px]">$ {formattedGrandTot}</p>
         </div>
-        {cartCtx.cartItems.length > 0 ?
+        {cartCtx.cartItems.length > 0 && userProgressCtx.formIsValid ?
           <div onClick={handlePay}>
             <Button color="orange" btnTxt='CONTINUE & PAY'/>
           </div>
