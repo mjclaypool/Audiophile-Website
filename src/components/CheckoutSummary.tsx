@@ -1,9 +1,11 @@
 import { useContext } from 'react';
 import Button from '../UI/Button';
 import CartContext from '../store/CartContext';
+import UserProgressContext from '../store/UserProgressContext';
 
 const CheckoutSummary = () => {
   const cartCtx = useContext(CartContext);
+  const userProgressCtx = useContext(UserProgressContext)
 
   const tot: number = cartCtx.cartTotalPrice;
   let shipping: number = 50;
@@ -21,6 +23,11 @@ const CheckoutSummary = () => {
     formattedVat = formattedVat.substring(0, formattedVat.length - 2);
   }
   const formattedGrandTot: string = priceFormatter.format(grandTot);
+
+  function handlePay() {
+    userProgressCtx.showCheckout();
+    window.scrollTo(0, 0);
+  }
 
   return (
     <div className="flex justify-center">
@@ -63,7 +70,7 @@ const CheckoutSummary = () => {
           <p className="text-h6 text-p-orange-dark tracking-[0px]">$ {formattedGrandTot}</p>
         </div>
         {cartCtx.cartItems.length > 0 ?
-          <div >
+          <div onClick={handlePay}>
             <Button color="orange" btnTxt='CONTINUE & PAY'/>
           </div>
         :
