@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import UserProgressContext from "../store/UserProgressContext.tsx";
+import CartContext from "../store/CartContext.tsx";
 import NavModal from "./NavModal.tsx";
 import CartModal from "./CartModal.tsx";
 
@@ -12,6 +13,7 @@ import cart from '/assets/shared/desktop/icon-cart.svg'
 
 export default function Header() {
   const userProgressCtx = useContext(UserProgressContext);
+  const cartCtx = useContext(CartContext);
 
   function handleShowNavModal() {
     if (userProgressCtx.progress !== "menu") {
@@ -57,13 +59,18 @@ export default function Header() {
           <Link to="/speakers" onClick={() => window.scrollTo(0, 0)} className="text-sub-title hover:text-p-orange-dark">SPEAKERS</Link>
           <Link to="/earphones" onClick={() => window.scrollTo(0, 0)} className="text-sub-title hover:text-p-orange-dark">EARPHONES</Link>
         </nav>
-        <div className="flex md:flex-1 justify-end">
+        <div className="relative flex md:flex-1 justify-end pointer-events-none">
           <img
             src={cart}
             alt="Cart icon"
-            className="h-5 object-contain cursor-pointer"
+            className="h-5 object-contain cursor-pointer pointer-events-auto"
             onClick={handleShowCart}
           />
+          {cartCtx.cartTotalItems > 0 &&
+            <div className="absolute -top-[8px] -right-[12px] bg-p-orange-dark rounded-full">
+              <p className="font-bold text-body text-n-white py-[0.75px] px-2 leading-none">{cartCtx.cartTotalItems}</p>
+            </div>
+          }
         </div>
       </div>
       {userProgressCtx.progress == "menu" && <NavModal/>}
