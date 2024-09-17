@@ -40,7 +40,7 @@ export default function CartModal() {
               cartCtx.cartItems.map((item) => (
                 <div key={item.id} className="flex justify-between items-center mb-6">
                   <div className="flex items-center">
-                    <img src={`/assets/cart/image-${item.slug}.jpg`} alt={item.name} className="h-16 rounded-lg mr-4" />
+                    <img src={`./assets/cart/image-${item.slug}.jpg`} alt={item.name} className="h-16 rounded-lg mr-4" />
                     <div>
                       <h3 className="text-body font-bold">{item.name}</h3>
                       <p className="text-body text-[14px] font-bold opacity-50">$ {priceFormatter.format(item.price)}</p>

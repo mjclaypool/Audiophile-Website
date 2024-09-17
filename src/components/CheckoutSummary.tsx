@@ -38,7 +38,7 @@ const CheckoutSummary = () => {
         {cartCtx.cartItems.length > 0 ?
           cartCtx.cartItems.map((item) => (
             <div key={item.id} className="flex items-center mb-6">
-              <img src={`/assets/cart/image-${item.slug}.jpg`} alt={item.name} className="h-16 rounded-lg mr-4" />
+              <img src={`./assets/cart/image-${item.slug}.jpg`} alt={item.name} className="h-16 rounded-lg mr-4" />
               <div className="w-full">
                 <div className="flex justify-between">
                   <h3 className="text-body font-bold">{item.name}</h3>
