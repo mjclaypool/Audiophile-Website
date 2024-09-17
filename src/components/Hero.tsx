@@ -15,7 +15,7 @@ export default function Hero() {
           <p className="text-overline opacity-50 mt-[108px] md:mt-[126px] mb-4 md:mb-6">NEW PRODUCT</p>
           <h1 className="text-h2-5 md:text-h1 xl:w-[400px] mb-6">XX99 MARK II HEADPHONES</h1>
           <p className="text-body opacity-75 xl:w-[350px] mb-[28px] md:mb-10 md:px-40 xl:px-0">Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
-          <Link to="/headphones/xx99-mark-two-headphones" onClick={() => window.scrollTo(0, 0)} className="mb-[112px] md:mb-[167px]">
+          <Link to="/headphones/xx99-mark-two-headphones" onClick={() => window.scrollTo(0, 0)} className="self-center text-nowrap w-min mb-[112px] md:mb-[167px]">
             <Button color="orange" btnTxt="SEE PRODUCT" />
           </Link>
         </div>

@@ -20,7 +20,9 @@ export default function FeaturedZX7() {
       <div className="absolute z-10 top-[50%] -translate-y-[50%] left-6 xl:left-[95px]">
         <h2 className="font-manrope text-h4 mb-8">ZX7 Speaker</h2>
         <Link to="/speakers/zx7-speaker" onClick={() => window.scrollTo(0, 0)}>
-          <Button color="clear" btnTxt="SEE PRODUCT" />
+          <div className="text-nowrap w-min">
+            <Button color="clear" btnTxt="SEE PRODUCT" />
+          </div>
         </Link>
       </div>
     </div>

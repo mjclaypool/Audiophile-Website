@@ -67,6 +67,7 @@ export default {
         "n-grey-dark": "#F1F1F1",
         "n-grey": "#4C4C4C",
         "n-grey-light": "#FAFAFA",
+        "n-grey-form-border": "#CFCFCF",
         "n-white": "#FFFFFF",
         "n-black": "#000000",
       }

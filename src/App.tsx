@@ -6,6 +6,7 @@ import Headphones from './pages/Headphones';
 import Speakers from './pages/Speakers';
 import Earphones from './pages/Earphones';
 import ProductDetail from './pages/ProductDetail';
+import Checkout from './pages/Checkout';
 import { UserProgressContextProvider } from './store/UserProgressContext';
 import { CartContextProvider } from './store/CartContext';
 
@@ -20,7 +21,8 @@ const router = createHashRouter([
       { path: '/headphones', element: <Headphones /> },
       { path: '/speakers', element: <Speakers /> },
       { path: '/earphones', element: <Earphones /> },
-      { path: '/:category/:product', element: <ProductDetail /> }
+      { path: '/:category/:product', element: <ProductDetail /> },
+      { path: '/checkout', element: <Checkout /> }
     ]
   }
 ])

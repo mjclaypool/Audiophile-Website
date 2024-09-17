@@ -21,7 +21,9 @@ export default function FeaturedYX1() {
         <div className="flex flex-col md:justify-center xl:ml-[95px]">
           <h2 className="font-manrope text-h4 mb-8">YX1 Earphones</h2>
           <Link to="/earphones/yx1-earphones" onClick={() => window.scrollTo(0, 0)}>
-            <Button color="clear" btnTxt="SEE PRODUCT" />
+            <div className="text-nowrap w-min">
+              <Button color="clear" btnTxt="SEE PRODUCT" />
+            </div>
           </Link>
         </div>
       </div>
