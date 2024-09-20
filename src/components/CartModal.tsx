@@ -22,6 +22,7 @@ export default function CartModal() {
 
   function handleGoToCheckout() {
     userProgressCtx.hideModal();
+    window.scrollTo(0, 0)
   }
 
   return createPortal(
