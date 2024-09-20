@@ -95,7 +95,6 @@ export function UserProgressContextProvider({children}: {children:any}) {
   );
 
   useEffect(() => {
-    console.log(error)
     if (error.name == ""
       && error.email == ""
       && error.phone == ""
