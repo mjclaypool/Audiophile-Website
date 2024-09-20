@@ -18,11 +18,13 @@ interface UserProgressContextType {
   inputs: inputState,
   pymtMethod: string,
   formIsValid: boolean,
+  inputError: inputState,
   showMenu: () => void,
   showCart: () => void,
   showCheckout: () => void,
   hideModal: () => void,
   updateInputs: (name: string, value: string) => void,
+  updateErrors: (name: string, value: string) => void,
   updatePymtMethod: (method: string) => void
 }
 
@@ -37,15 +39,27 @@ const UserProgressContext = createContext<UserProgressContextType>({
     city: "",
     country: "",
     number: "",
-    pin: "",
+    pin: ""
   },
   pymtMethod: "",
   formIsValid: false,
+  inputError: {
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    zip: "",
+    city: "",
+    country: "",
+    number: "",
+    pin: ""
+  },
   showMenu: () => {},
   showCart: () => {},
   showCheckout: () => {},
   hideModal: () => {},
   updateInputs: () => {},
+  updateErrors: () => {},
   updatePymtMethod: () => {}
 });
 
@@ -66,19 +80,33 @@ export function UserProgressContextProvider({children}: {children:any}) {
       pin: "",
     }
   );
+  const [error, setError] = useState<inputState>(
+    {
+      name: "",
+      email: "",
+      phone: "",
+      address: "",
+      zip: "",
+      city: "",
+      country: "",
+      number: "",
+      pin: "",
+    }
+  );
 
   useEffect(() => {
-    if (userInput.name !== ""
-      && userInput.email !== ""
-      && userInput.phone !== ""
-      && userInput.address !== ""
-      && userInput.zip !== ""
-      && userInput.city !== ""
-      && userInput.country !== ""
+    console.log(error)
+    if (error.name == ""
+      && error.email == ""
+      && error.phone == ""
+      && error.address == ""
+      && error.zip == ""
+      && error.city == ""
+      && error.country == ""
     ){
       if (selectedMethod == "cash") {
         setFormIsComplete(true);
-      } else if (selectedMethod == "electronic" && userInput.number !== "" && userInput.pin !== "") {
+      } else if (selectedMethod == "electronic" && error.number == "" && error.pin == "") {
         setFormIsComplete(true);
       } else {
         setFormIsComplete(false);
@@ -86,7 +114,7 @@ export function UserProgressContextProvider({children}: {children:any}) {
     } else {
       setFormIsComplete(false)
     }
-  }, [userInput, selectedMethod])
+  }, [error, selectedMethod])
 
   function showMenu() {
     setUserProgress('menu');
@@ -108,6 +136,10 @@ export function UserProgressContextProvider({children}: {children:any}) {
     setUserInput( {...userInput, [name]: value} )
   }
 
+  function updateErrors(name: string, value: string) {
+    setError( prevError => ({...prevError, [name]: value}) )
+  }
+
   function updatePymtMethod(method: string) {
     setSelectedMethod(method);
   }
@@ -117,11 +149,13 @@ export function UserProgressContextProvider({children}: {children:any}) {
     inputs: userInput,
     formIsValid: formIsComplete,
     pymtMethod: selectedMethod,
+    inputError: error,
     showMenu,
     showCart,
     showCheckout,
     hideModal,
     updateInputs,
+    updateErrors,
     updatePymtMethod
   };
 

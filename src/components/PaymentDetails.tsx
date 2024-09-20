@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import Input from "../UI/Input";
 import UserProgressContext from "../store/UserProgressContext";
 
@@ -10,19 +10,38 @@ type paymentProps = {
   radioStyle: string,
 }
 
-type blurState = {
-  number: boolean,
-  pin: boolean,
-}
-
 const PaymentDetails = ( props: paymentProps ) => {
   const userProgressCtx = useContext(UserProgressContext);
-  const [didEdit, setDidEdit] = useState<blurState>(
+  const [didEdit, setDidEdit] = useState<{number: boolean, pin: boolean}>(
     {
       number: false,
       pin: false
     }
   );
+
+  useEffect(() => {
+    if (userProgressCtx.inputs.number == "") {
+      userProgressCtx.updateErrors("number", "Required");
+    } else if (userProgressCtx.inputs.number.length > 0) {
+      let regex = /\b\d{9}\b/;
+      if (regex.test(userProgressCtx.inputs.number) == false) {
+        userProgressCtx.updateErrors("number", "Invalid number. Must be 9 digits.");
+      } else {
+        userProgressCtx.updateErrors("number", "");
+      }
+    }
+
+    if (userProgressCtx.inputs.pin == "") {
+      userProgressCtx.updateErrors("pin", "Required");
+    } else if (userProgressCtx.inputs.pin.length > 0) {
+      let regex = /\b\d{4}\b/;
+      if (regex.test(userProgressCtx.inputs.pin) == false) {
+        userProgressCtx.updateErrors("pin", "Invalid pin. Must be 4 digits.");
+      } else {
+        userProgressCtx.updateErrors("pin", "");
+      }
+    }
+  }, [didEdit])
 
   function handleInputBlur(id: string) {
     setDidEdit(prevEdit => ({
@@ -31,8 +50,12 @@ const PaymentDetails = ( props: paymentProps ) => {
     }))
   }
 
-  function handleChange(name: string, value: string) {
+  function handleChange(id: string, name: string, value: string) {
     userProgressCtx.updateInputs(name, value)
+    setDidEdit(prevEdit => ({
+      ...prevEdit,
+      [id]: false
+    }))
   }
 
   return (
@@ -75,7 +98,8 @@ const PaymentDetails = ( props: paymentProps ) => {
               placeholder="238521993"
               labelStyle={props.labelStyle}
               inputStyle={props.inputStyle}
-              error={didEdit.number == true && userProgressCtx.inputs.number == ""}
+              error={didEdit.number == true && userProgressCtx.inputError.number !== ""}
+              errorMsg={userProgressCtx.inputError.number}
               didEdit={() => handleInputBlur('number')}
               didChange={handleChange}
             />
@@ -89,7 +113,8 @@ const PaymentDetails = ( props: paymentProps ) => {
               placeholder="6891"
               labelStyle={props.labelStyle}
               inputStyle={props.inputStyle}
-              error={didEdit.pin == true && userProgressCtx.inputs.pin == ""}
+              error={didEdit.pin == true && userProgressCtx.inputError.pin !== ""}
+              errorMsg={userProgressCtx.inputError.pin}
               didEdit={() => handleInputBlur('pin')}
               didChange={handleChange}
             />

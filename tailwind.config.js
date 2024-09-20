@@ -63,6 +63,7 @@ export default {
       colors: {
         "p-orange-dark": "#D87D4A",
         "p-orange-light": "#FBAF85",
+        "p-error-red": "#CD2C2C",
         "n-grey-v-dark": "#101010",
         "n-grey-dark": "#F1F1F1",
         "n-grey": "#4C4C4C",

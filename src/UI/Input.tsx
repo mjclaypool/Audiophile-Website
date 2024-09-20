@@ -7,8 +7,9 @@ type inputProps = {
   labelStyle: string
   inputStyle: string,
   error: boolean,
+  errorMsg: string,
   didEdit: () => void,
-  didChange: (name: string, value: string) => void
+  didChange: (id: string, name: string, value: string) => void
 }
 
 const Input = ( props: inputProps ) => {
@@ -18,7 +19,7 @@ const Input = ( props: inputProps ) => {
   }
 
   function handleChange(e: any) {
-    props.didChange( e.target.name, e.target.value )
+    props.didChange( e.target.id, e.target.name, e.target.value )
   }
 
   return (
@@ -26,8 +27,8 @@ const Input = ( props: inputProps ) => {
       {props.error ?
         <div className="flex flex-col md:flex-1 mb-6 md:mb-0">
           <div className="flex justify-between">
-            <label htmlFor={props.id} className={`${props.labelStyle} text-[#CD2C2C]`}>{props.name}</label>
-            <p className="text-[12px] font-medium text-[#CD2C2C]">Required</p>
+            <label htmlFor={props.id} className={`${props.labelStyle} text-p-error-red`}>{props.name}</label>
+            <p className="text-[12px] font-medium text-p-error-red">{props.errorMsg}</p>
           </div>
           <input
             type={props.type}
@@ -35,7 +36,7 @@ const Input = ( props: inputProps ) => {
             name={props.id}
             value={props.value}
             placeholder={props.placeholder}
-            className={`${props.inputStyle} border-2 border-[#CD2C2C] focus:border-[#CD2C2C]`}
+            className={`${props.inputStyle} border-2 border-p-error-red focus:border-p-error-red`}
             onChange={handleChange}
             onBlur={handleInputBlur}
           />

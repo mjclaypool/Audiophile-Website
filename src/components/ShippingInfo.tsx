@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import Input from "../UI/Input";
 import UserProgressContext from "../store/UserProgressContext";
 
@@ -7,16 +7,9 @@ type shippingProps = {
   inputStyle: string,
 }
 
-type blurState = {
-  address: boolean,
-  zip: boolean,
-  city: boolean,
-  country: boolean
-}
-
 const ShippingInfo = ( props: shippingProps ) => {
   const userProgressCtx = useContext(UserProgressContext);
-  const [didEdit, setDidEdit] = useState<blurState>(
+  const [didEdit, setDidEdit] = useState<{address: boolean, zip: boolean, city: boolean, country: boolean}>(
     {
       address: false,
       zip: false,
@@ -25,6 +18,37 @@ const ShippingInfo = ( props: shippingProps ) => {
     }
   )
 
+  useEffect(() => {
+    if (userProgressCtx.inputs.address == "") {
+      userProgressCtx.updateErrors("address", "Required");
+    } else {
+      userProgressCtx.updateErrors("address", "");
+    }
+
+    if (userProgressCtx.inputs.zip == "") {
+      userProgressCtx.updateErrors("zip", "Required");
+    } else if (userProgressCtx.inputs.zip.length > 0) {
+      let regex = /\b\d{5}\b/;
+      if (regex.test(userProgressCtx.inputs.zip) == false) {
+        userProgressCtx.updateErrors("zip", "Invalid zip code. Must be 5 digits.");
+      } else {
+        userProgressCtx.updateErrors("zip", "");
+      }
+    }
+
+    if (userProgressCtx.inputs.city == "") {
+      userProgressCtx.updateErrors("city", "Required");
+    } else {
+      userProgressCtx.updateErrors("city", "");
+    }
+
+    if (userProgressCtx.inputs.country == "") {
+      userProgressCtx.updateErrors("country", "Required");
+    } else {
+      userProgressCtx.updateErrors("country", "");
+    }
+  }, [didEdit])
+
   function handleInputBlur(id: string) {
     setDidEdit(prevEdit => ({
       ...prevEdit,
@@ -32,8 +56,12 @@ const ShippingInfo = ( props: shippingProps ) => {
     }))
   }
 
-  function handleChange(name: string, value: string) {
+  function handleChange(id: string, name: string, value: string) {
     userProgressCtx.updateInputs(name, value)
+    setDidEdit(prevEdit => ({
+      ...prevEdit,
+      [id]: false
+    }))
   }
 
   return (
@@ -48,7 +76,8 @@ const ShippingInfo = ( props: shippingProps ) => {
           placeholder="1137 Williams Avenue"
           labelStyle={props.labelStyle}
           inputStyle={props.inputStyle}
-          error={didEdit.address == true && userProgressCtx.inputs.address == ""}
+          error={didEdit.address == true && userProgressCtx.inputError.address !== ""}
+          errorMsg={userProgressCtx.inputError.address}
           didEdit={() => handleInputBlur('address')}
           didChange={handleChange}
         />
@@ -63,7 +92,8 @@ const ShippingInfo = ( props: shippingProps ) => {
             placeholder="10001"
             labelStyle={props.labelStyle}
             inputStyle={props.inputStyle}
-            error={didEdit.zip == true && userProgressCtx.inputs.zip == ""}
+            error={didEdit.zip == true && userProgressCtx.inputError.zip !== ""}
+            errorMsg={userProgressCtx.inputError.zip}
             didEdit={() => handleInputBlur('zip')}
             didChange={handleChange}
           />
@@ -77,7 +107,8 @@ const ShippingInfo = ( props: shippingProps ) => {
             placeholder="New York"
             labelStyle={props.labelStyle}
             inputStyle={props.inputStyle}
-            error={didEdit.city == true && userProgressCtx.inputs.city == ""}
+            error={didEdit.city == true && userProgressCtx.inputError.city !== ""}
+            errorMsg={userProgressCtx.inputError.city}
             didEdit={() => handleInputBlur('city')}
             didChange={handleChange}
           />
@@ -93,7 +124,8 @@ const ShippingInfo = ( props: shippingProps ) => {
             placeholder="United States"
             labelStyle={props.labelStyle}
             inputStyle={props.inputStyle}
-            error={didEdit.country == true && userProgressCtx.inputs.country == ""}
+            error={didEdit.country == true && userProgressCtx.inputError.country !== ""}
+            errorMsg={userProgressCtx.inputError.country}
             didEdit={() => handleInputBlur('country')}
             didChange={handleChange}
           />
