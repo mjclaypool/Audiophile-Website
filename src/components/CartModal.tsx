@@ -35,7 +35,7 @@ export default function CartModal() {
           <div className="flex flex-col bg-n-white m-6 md:mx-0 xl:my-8 px-[28px] py-[32px] w-full md:w-[377px] h-min font-manrope rounded-lg">
             <div className="flex justify-between items-center mb-[31px]">
               <h2 className="text-h6">CART ({cartCtx.cartTotalItems})</h2>
-              <p className="text-body opacity-50 underline hover:text-p-orange-dark hover:opacity-100 cursor-pointer" onClick={handleClearCart}>Remove all</p>
+              <button type="button" className="text-body opacity-50 underline hover:text-p-orange-dark hover:opacity-100 cursor-pointer" onClick={handleClearCart}>Remove all</button>
             </div>
             {cartCtx.cartItems.length > 0 ?
               cartCtx.cartItems.map((item) => (

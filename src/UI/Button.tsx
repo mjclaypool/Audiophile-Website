@@ -19,7 +19,7 @@ const Button = (props: btnProps) => {
   }
 
   return (
-    <button className={`${colorVariants[props.color]} w-full font-manrope font-bold text-[13px] tracking-[1px] leading-[18px]`}>
+    <div className={`${colorVariants[props.color]} w-full font-manrope font-bold text-[13px] text-center tracking-[1px] leading-[18px]`}>
       {props.btnTxt}
       {props.color == "noBorder" &&
         <FontAwesomeIcon
@@ -28,7 +28,7 @@ const Button = (props: btnProps) => {
           className="text-p-orange-dark pl-2"
         />
       }
-    </button>
+    </div>
   )
 }
 
